@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  num_bathrooms: 1
+  num_bedrooms: 1
+  rent: 1
+  rent_type: MyString
+  square_footage: 1
+
+two:
+  name: MyString
+  num_bathrooms: 1
+  num_bedrooms: 1
+  rent: 1
+  rent_type: MyString
+  square_footage: 1
