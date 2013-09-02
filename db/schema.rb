@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902195629) do
+ActiveRecord::Schema.define(version: 20130902210300) do
 
   create_table "apartments", force: true do |t|
     t.string   "name"
@@ -23,6 +23,27 @@ ActiveRecord::Schema.define(version: 20130902195629) do
     t.boolean  "featured"
     t.string   "slug"
     t.string   "geocode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "floorplans", force: true do |t|
+    t.string   "name"
+    t.integer  "num_bathrooms"
+    t.integer  "num_bedrooms"
+    t.integer  "rent"
+    t.string   "rent_type"
+    t.integer  "square_footage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "apartment_id"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.text     "content"
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "apartment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
