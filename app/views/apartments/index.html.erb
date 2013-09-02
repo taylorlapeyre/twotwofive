@@ -1,0 +1,43 @@
+<h1>Listing apartments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Zipcode</th>
+      <th>Phone number</th>
+      <th>Website url</th>
+      <th>Featured</th>
+      <th>Slug</th>
+      <th>Geocode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.name %></td>
+        <td><%= apartment.description %></td>
+        <td><%= apartment.address %></td>
+        <td><%= apartment.zipcode %></td>
+        <td><%= apartment.phone_number %></td>
+        <td><%= apartment.website_url %></td>
+        <td><%= apartment.featured %></td>
+        <td><%= apartment.slug %></td>
+        <td><%= apartment.geocode %></td>
+        <td><%= link_to 'Show', apartment %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartment', new_apartment_path %>

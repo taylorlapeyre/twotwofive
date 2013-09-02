@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @apartment.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @apartment.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @apartment.address %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @apartment.zipcode %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @apartment.phone_number %>
+</p>
+
+<p>
+  <strong>Website url:</strong>
+  <%= @apartment.website_url %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @apartment.featured %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @apartment.slug %>
+</p>
+
+<p>
+  <strong>Geocode:</strong>
+  <%= @apartment.geocode %>
+</p>
+
+<h3>Reviews for <%= @apartment.name %>:</h4>
+
+<% @apartment.reviews.each do |review| %>
+  <%= render "shared/review" %>
+<% end %>
+
+<h3>Floorplans for <%= @apartment.name %>:</h4>
+
+<% @apartment.floorplans.each do |floorplan| %>
+  <%= render "shared/floorplan" %>
+<% end %>
+
+<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
+<%= link_to 'Back', apartments_path %>
