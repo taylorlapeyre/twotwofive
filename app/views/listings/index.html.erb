@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Building Name</th>
       <th>Address</th>
       <th>Zip</th>
       <th>Descrption</th>
@@ -24,7 +24,7 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.name %></td>
+        <td><%= listing.building_name %></td>
         <td><%= listing.address %></td>
         <td><%= listing.zip %></td>
         <td><%= listing.descrption %></td>

@@ -8,38 +8,40 @@ class Listing < ActiveRecord::Base
   VALID_GEOCODE_REGEX = /-?\d{1,2}\.\d+,-?\d{1,2}\.\d+/
   VALID_PHONE_NUMBER_REGEX = /\d{10}/
 
-  validates :address, :zip, :phone_number, :featured, :slug, :geocode, :active, presence: true
+  validates :address, :zip, :phone_number, :slug, :geocode, :active, presence: true
   validates :slug, uniqueness: true
   validates :geocode, format: { with: VALID_GEOCODE_REGEX }
   validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
 
   
-  def before_save
-    self.make_slug
+  before_validation(on: :create) do
+    self.featured = false
+    self.slug = make_slug
     self.geocode = "30.386104,-91.166805" # Stubbed
+    puts self.slug, self.geocode, self.featured, self.zip
   end
 
-  private
-    def make_slug
-      #strip the string
-      self.slug = self.slug.strip
+  def make_slug
+    slug = self.address
+    #strip the string
+    slug = slug.strip
 
-      #blow away apostrophes
-      self.slug.gsub! /['`]/,""
+    #blow away apostrophes
+    slug.gsub! /['`]/,""
 
-      # @ --> at, and & --> and
-      self.slug.gsub! /\s*@\s*/, " at "
-      self.slug.gsub! /\s*&\s*/, " and "
+    # @ --> at, and & --> and
+    slug.gsub! /\s*@\s*/, " at "
+    slug.gsub! /\s*&\s*/, " and "
 
-      #replace all non alphanumeric, underscore or periods with dash
-      self.slug.gsub! /\s*[^A-Za-z0-9\.\-]\s*/, '-'  
+    #replace all non alphanumeric, underscore or periods with dash
+    slug.gsub! /\s*[^A-Za-z0-9\.\-]\s*/, '-'  
 
-      #convert double dashes to single
-      self.slug.gsub! /-+/,"-"
+    #convert double dashes to single
+    slug.gsub! /-+/,"-"
 
-      #strip off leading/trailing dash
-      self.slug.gsub! /\A[-\.]+|[-\.]+\z/,""
+    #strip off leading/trailing dash
+    slug.gsub! /\A[-\.]+|[-\.]+\z/,""
 
-      self.slug
-    end
+    slug
+  end
 end
