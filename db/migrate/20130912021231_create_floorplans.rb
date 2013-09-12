@@ -8,7 +8,6 @@ class CreateFloorplans < ActiveRecord::Migration
       t.integer :rent
       t.string :rent_type
       t.integer :square_footage
-      t.integer :lease_term
       t.integer :deposit
       t.integer :lease_term
       t.string :lease_type
