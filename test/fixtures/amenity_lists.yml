@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  listing_id: 1
+  basketball_court: false
+  club_house: false
+  game_room: false
+  gated_community: false
+  gym: false
+  handicap_accessible: false
+  media_center: false
+  pool: false
+  public_bus_route: false
+  spa: false
+  storage_space: false
+  tanning_bed: false
+  tennis_court: false
+  university_bus_route: false
+  volleyball_court: false
+
+two:
+  listing_id: 1
+  basketball_court: false
+  club_house: false
+  game_room: false
+  gated_community: false
+  gym: false
+  handicap_accessible: false
+  media_center: false
+  pool: false
+  public_bus_route: false
+  spa: false
+  storage_space: false
+  tanning_bed: false
+  tennis_court: false
+  university_bus_route: false
+  volleyball_court: false
