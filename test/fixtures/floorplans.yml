@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  listing_id: 1
+  name: MyString
+  num_bathrooms: 1
+  num_bedrooms: 1
+  rent: 1
+  rent_type: MyString
+  square_footage: 1
+  lease_term: 1
+  deposit: 1
+  lease_term: 1
+  lease_type: MyString
+  active: false
+
+two:
+  listing_id: 1
+  name: MyString
+  num_bathrooms: 1
+  num_bedrooms: 1
+  rent: 1
+  rent_type: MyString
+  square_footage: 1
+  lease_term: 1
+  deposit: 1
+  lease_term: 1
+  lease_type: MyString
+  active: false
