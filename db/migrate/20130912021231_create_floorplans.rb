@@ -11,7 +11,7 @@ class CreateFloorplans < ActiveRecord::Migration
       t.integer :deposit
       t.integer :lease_term
       t.string :lease_type
-      t.boolean :active
+      t.boolean :active, default: true
 
       t.timestamps
     end
