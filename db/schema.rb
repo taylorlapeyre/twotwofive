@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 20130912022527) do
     t.integer  "rent"
     t.string   "rent_type"
     t.integer  "square_footage"
-    t.integer  "lease_term"
     t.integer  "deposit"
+    t.integer  "lease_term"
     t.string   "lease_type"
-    t.boolean  "active"
+    t.boolean  "active",         default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,17 +89,17 @@ ActiveRecord::Schema.define(version: 20130912022527) do
   end
 
   create_table "listings", force: true do |t|
-    t.string   "name"
+    t.string   "building_name"
     t.string   "address"
     t.string   "zip"
     t.text     "descrption"
     t.string   "contact_email"
     t.string   "phone_number"
     t.string   "website_url"
-    t.boolean  "featured"
+    t.boolean  "featured",        default: false
     t.string   "slug"
     t.string   "geocode"
-    t.boolean  "active"
+    t.boolean  "active",          default: true
     t.integer  "neighborhood_id"
     t.datetime "created_at"
     t.datetime "updated_at"
