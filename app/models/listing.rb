@@ -12,4 +12,27 @@ class Listing < ActiveRecord::Base
 	validates :slug, uniqueness: true
 	validates :geocode, format: { with: VALID_GEOCODE_REGEX }
 	validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
+
+	def make_slug
+    #strip the string
+    self.slug = self.slug.strip
+
+    #blow away apostrophes
+    self.slug.gsub! /['`]/,""
+
+    # @ --> at, and & --> and
+    self.slug.gsub! /\s*@\s*/, " at "
+    self.slug.gsub! /\s*&\s*/, " and "
+
+    #replace all non alphanumeric, underscore or periods with dash
+    self.slug.gsub! /\s*[^A-Za-z0-9\.\-]\s*/, '-'  
+
+    #convert double dashes to single
+    self.slug.gsub! /-+/,"-"
+
+    #strip off leading/trailing dash
+    self.slug.gsub! /\A[-\.]+|[-\.]+\z/,""
+
+    self.slug
+  end
 end
