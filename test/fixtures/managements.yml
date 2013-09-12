@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  landlord_id: 1
+  listing_id: 1
+
+two:
+  landlord_id: 1
+  listing_id: 1
