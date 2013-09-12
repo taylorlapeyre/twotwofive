@@ -1,10 +1,11 @@
 Twotwofive::Application.routes.draw do
+  resources :listings
+  
   root             "static_pages#index"
   get "contact" => "static_pages#contact"
   get "terms"   => "static_pages#terms"
   get "about"   => "static_pages#about"
   get "privacy" => "static_pages#privacy"
-  resources :listings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
