@@ -1,4 +1,4 @@
 class Management < ActiveRecord::Base
-	has_one :landlord
-	has_one :listing
+	belongs_to :landlord
+	belongs_to :listing
 end
