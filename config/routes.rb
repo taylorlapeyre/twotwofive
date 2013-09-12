@@ -1,9 +1,9 @@
 Twotwofive::Application.routes.draw do
-  get "static_pages/index"
-  get "static_pages/contact"
-  get "static_pages/terms"
-  get "static_pages/about"
-  get "static_pages/privacy"
+  root             "static_pages#index"
+  get "contact" => "static_pages#contact"
+  get "terms"   => "static_pages#terms"
+  get "about"   => "static_pages#about"
+  get "privacy" => "static_pages#privacy"
   resources :listings
 
   # The priority is based upon order of creation: first created -> highest priority.
