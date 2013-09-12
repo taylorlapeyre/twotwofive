@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  floorplan_id: 1
+  alarm_system: false
+  cats_allowed: false
+  central_air: false
+  covered_parking: false
+  deck_patio: false
+  dishwasher: false
+  dogs_allowed: false
+  elevator: false
+  fireplace: false
+  hardwood_floors: false
+  new_appliances: false
+  on_street_parking: false
+  parking_garage: false
+  private_garage: false
+  private_yard: false
+  reserved_parking: false
+  shared_yard: false
+  vaulted_ceilings: false
+  walk_in_closet: false
+  washer_dryer: false
+  wifi_included: false
+
+two:
+  floorplan_id: 1
+  alarm_system: false
+  cats_allowed: false
+  central_air: false
+  covered_parking: false
+  deck_patio: false
+  dishwasher: false
+  dogs_allowed: false
+  elevator: false
+  fireplace: false
+  hardwood_floors: false
+  new_appliances: false
+  on_street_parking: false
+  parking_garage: false
+  private_garage: false
+  private_yard: false
+  reserved_parking: false
+  shared_yard: false
+  vaulted_ceilings: false
+  walk_in_closet: false
+  washer_dryer: false
+  wifi_included: false
