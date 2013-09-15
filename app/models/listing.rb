@@ -23,9 +23,7 @@ class Listing < ActiveRecord::Base
   end
 
   before_destroy do
-    self.floorplans.each do |floorplan|
-      floorplan.delete
-    end
+    Floorplan.destroy_all(:listing_id => self.id)
   end
 
   def make_slug
