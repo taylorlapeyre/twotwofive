@@ -26,7 +26,6 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    @floorplan = Floorplan.new
 
     respond_to do |format|
       if @listing.save

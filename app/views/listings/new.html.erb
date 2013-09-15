@@ -1,5 +1,4 @@
 <h1>New listing</h1>
-
 <h3>Step One:</h3>
 
 <%= render 'form' %>
@@ -8,8 +7,6 @@
 
 <h3>Step Two:</h3>
 
-
-
-<%= render 'floorplans/form', listing: @listing %>
+<%= render 'floorplans/form', listing: Listing.last.id + 1 %>
 
 <%= link_to 'Back', listings_path %>
