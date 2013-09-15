@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
   # GET /listings/new
   def new
     @listing = Listing.new
+    @floorplan = Floorplan.new
   end
 
   # GET /listings/1/edit
@@ -29,6 +30,7 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.js   {}
         format.json { render action: 'show', status: :created, location: @listing }
       else
         format.html { render action: 'new' }
@@ -69,6 +71,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :address, :zip, :descrption, :contact_email, :phone_number, :website_url, :featured, :slug, :geocode, :active, :neighborhood_id)
+      params.require(:listing).permit(:building_name, :address, :zip, :descrption, :contact_email, :phone_number, :website_url, :neighborhood_id)
     end
 end

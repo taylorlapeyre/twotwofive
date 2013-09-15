@@ -1,5 +1,6 @@
 Twotwofive::Application.routes.draw do
   resources :listings
+  resources :floorplans
   
   root             "static_pages#index"
   get "contact" => "static_pages#contact"
