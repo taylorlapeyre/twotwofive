@@ -7,18 +7,25 @@ class Listing < ActiveRecord::Base
 
   VALID_GEOCODE_REGEX = /-?\d{1,2}\.\d+,-?\d{1,2}\.\d+/
   VALID_PHONE_NUMBER_REGEX = /\d{10}/
+  VALID_ZIP_REGEX = /\d{5}/
 
   validates :address, :zip, :phone_number, :slug, :geocode, :active, presence: true
   validates :slug, uniqueness: true
   validates :geocode, format: { with: VALID_GEOCODE_REGEX }
   validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
+  validates :zip, format: { with: VALID_ZIP_REGEX }
 
   
   before_validation(on: :create) do
     self.featured = false
     self.slug = make_slug
     self.geocode = "30.386104,-91.166805" # Stubbed
-    puts self.slug, self.geocode, self.featured, self.zip
+  end
+
+  before_destroy do
+    self.floorplans.each do |floorplan|
+      floorplan.delete
+    end
   end
 
   def make_slug
