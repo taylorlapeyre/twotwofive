@@ -4,6 +4,6 @@
 
 $(document).ready ->
   $("#new_listing").on("ajax:success", (e, data, status, xhr) ->
-    $("#new_listing").append "<p class='text-success'>Listing Added!</p>"
+    $("#new_listing").append "<p class='alert-success'>Listing Added!</p>"
   ).bind "ajax:error", (e, xhr, status, error) ->
-    $("#new_listing").append "<p class='text-danger'>There was an error adding your listing.</p>"
+    $("#new_listing").append "<p class='alert-danger'>There was an error adding your listing.</p>"
