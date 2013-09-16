@@ -1,0 +1,56 @@
+<%= form_for(@floorplan, remote: true) do |fp| %>
+  <% if @floorplan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@floorplan.errors.count, "error") %> prohibited this floorplan from being saved:</h2>
+
+      <ul>
+      <% @floorplan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= fp.hidden_field :listing_id, value: listing %>
+  </div>
+  <div class="field">
+    <%= fp.label :name %><br>
+    <%= fp.text_field :name %>
+  </div>
+  <div class="field">
+    <%= fp.label :num_bathrooms %><br>
+    <%= fp.number_field :num_bathrooms %>
+  </div>
+  <div class="field">
+    <%= fp.label :num_bedrooms %><br>
+    <%= fp.number_field :num_bedrooms %>
+  </div>
+  <div class="field">
+    <%= fp.label :rent %><br>
+    <%= fp.number_field :rent %>
+  </div>
+  <div class="field">
+    <%= fp.label :rent_type %><br>
+    <%= fp.text_field :rent_type %>
+  </div>
+  <div class="field">
+    <%= fp.label :square_footage %><br>
+    <%= fp.number_field :square_footage %>
+  </div>
+  <div class="field">
+    <%= fp.label :deposit %><br>
+    <%= fp.number_field :deposit, placeholder: "(Optional)" %>
+  </div>
+  <div class="field">
+    <%= fp.label :lease_term %><br>
+    <%= fp.number_field :lease_term %>
+  </div>
+  <div class="field">
+    <%= fp.label :lease_type %><br>
+    <%= fp.text_field :lease_type %>
+  </div>
+  <div class="actions">
+    <%= fp.submit %>
+  </div>
+<% end %>
