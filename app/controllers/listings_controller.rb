@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in, except: [:show, :index]
+  before_action :correct_landlord, only: [:update, :edit, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -29,6 +31,10 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
+        management = Management.new
+        management.landlord_id = current_landlord.id
+        management.listing_id = @listing.id
+        management.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.js   {}
         format.json { render action: 'show', status: :created, location: @listing }
@@ -73,4 +79,19 @@ class ListingsController < ApplicationController
     def listing_params
       params.require(:listing).permit(:building_name, :address, :zip, :descrption, :contact_email, :phone_number, :website_url, :neighborhood_id)
     end
+
+    def signed_in
+      redirect_to '/' unless signed_in?
+    end
+
+    def correct_landlord
+      correct = false
+      @listing = Listing.find(params[:id])
+
+      @listing.landlords.each do |landlord|
+        correct = true if landlord.id == current_landlord.id
+      end
+      
+      redirect_to '/' unless correct
+    end 
 end
