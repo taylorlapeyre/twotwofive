@@ -35,8 +35,6 @@ class ListingsController < ApplicationController
         management.landlord_id = current_landlord.id
         management.listing_id = @listing.id
         management.save
-        puts management.landlord_id
-        puts '#' * 50
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.js   {}
         format.json { render action: 'show', status: :created, location: @listing }
