@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130912022527) do
+ActiveRecord::Schema.define(version: 20130925005852) do
 
   create_table "amenity_lists", force: true do |t|
     t.integer  "listing_id"
@@ -86,7 +86,10 @@ ActiveRecord::Schema.define(version: 20130912022527) do
     t.string   "contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "landlords", ["remember_token"], name: "index_landlords_on_remember_token"
 
   create_table "listings", force: true do |t|
     t.string   "building_name"
