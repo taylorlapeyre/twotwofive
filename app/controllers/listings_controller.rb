@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -72,5 +73,9 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:building_name, :address, :zip, :descrption, :contact_email, :phone_number, :website_url, :neighborhood_id)
+    end
+
+    def signed_in
+      redirect_to '/' unless signed_in?
     end
 end
