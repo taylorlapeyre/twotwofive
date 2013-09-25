@@ -19,6 +19,8 @@ class Listing < ActiveRecord::Base
   before_validation(on: :create) do
     self.featured = false
     self.slug = make_slug
+    puts self.slug
+    puts '$'*50
     self.geocode = "30.386104,-91.166805" # Stubbed
   end
 
