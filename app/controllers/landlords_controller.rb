@@ -9,7 +9,8 @@ class LandlordsController < ApplicationController
     @landlord = Landlord.new(landlord_params)
 
     if @landlord.save
-      render action: 'show', status: :created, location: @landlord
+      sign_in @landlord
+      redirect_to '/'
     else
       render action: 'new'
     end

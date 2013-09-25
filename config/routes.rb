@@ -2,12 +2,17 @@ Twotwofive::Application.routes.draw do
   resources :listings
   resources :floorplans
   resources :landlords
+  resources :sessions, only: [:new, :create, :destroy]
   
   root             "static_pages#index"
   get "contact" => "static_pages#contact"
   get "terms"   => "static_pages#terms"
   get "about"   => "static_pages#about"
   get "privacy" => "static_pages#privacy"
+
+  match '/signup',  to: 'landlords#new',        via: 'get'
+  match '/signin',  to: 'sessions#new',     via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
