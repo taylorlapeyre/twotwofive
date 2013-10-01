@@ -2,9 +2,12 @@
 
 <body class="container">
 	<% if signed_in? %>
-		<p class="alert alert-info">
+		<p class="alert <%= current_landlord.has_incomplete_listings? ? "alert-warning" : "alert-info" %>">
 			Signed in as <%= current_landlord.email %>
 			<%= link_to "Sign Out?", signout_path, method: :delete %>
+			<% if current_landlord.has_incomplete_listings? %>
+				<span class="pull-right">You have incomplete listings!</span>
+			<% end %>
 		</p>
 	<% end %>
 	<%= yield %>

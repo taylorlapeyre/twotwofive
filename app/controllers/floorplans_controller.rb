@@ -2,6 +2,11 @@ class FloorplansController < ApplicationController
   before_action :set_floorplan, only: [:update, :destroy]
   before_action :signed_in
 
+  def new
+    @floorplan = Floorplan.new
+    @listing = Listing.find(params[:listing_id])
+  end
+
 	def create
     @floorplan = Floorplan.new(floorplan_params)
 
