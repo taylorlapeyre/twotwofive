@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
   before_action :signed_in
-  before_action :correct_landlord
   def new
     @image = Image.new
 
@@ -30,14 +29,9 @@ class ImagesController < ApplicationController
     def image_params
       params.require(:image).permit(:listing_id, :floorplan_id, :image_file)
     end
-    
+
     def signed_in
       redirect_to '/' unless signed_in?
     end
-
-    def correct_landlord
-      @listing = Listing.find(params[:listing_id])
-      redirect_to '/' if @listing.landlords.where(id: current_landlord.id).empty?
-    end 
 
 end
