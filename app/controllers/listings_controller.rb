@@ -34,7 +34,7 @@ class ListingsController < ApplicationController
         Management.create(landlord_id: current_landlord.id, listing_id: @listing.id)
         @floorplan = Floorplan.new
 
-        format.html { render new_floorplan_path }
+        format.html { render 'upload_images' }
         format.json { render action: 'show', status: :created, location: @listing }
       else
         format.html { render action: 'new' }
