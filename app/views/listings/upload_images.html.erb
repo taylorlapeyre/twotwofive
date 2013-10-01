@@ -3,4 +3,6 @@
 
 <%= render 'images/form', :listing => @listing %>
 
-<%= link_to "Next", "#" %>
+<div id="image-box"></div>
+
+<%= link_to "Next", new_floorplan_path(:listing_id => @listing.id) %>
