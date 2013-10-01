@@ -12,6 +12,16 @@ class Landlord < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def has_incomplete_listings?
+    incomplete = false
+
+    self.listings.each do |listing|
+      if listing.floorplans.empty?
+        incomplete = true
+      end
+    end
+  end
+
   private
 
     def create_remember_token

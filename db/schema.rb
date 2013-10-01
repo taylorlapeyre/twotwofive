@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925005852) do
+ActiveRecord::Schema.define(version: 20131001022252) do
 
   create_table "amenity_lists", force: true do |t|
     t.integer  "listing_id"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20130925005852) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_file_name"
+    t.string   "image_file_content_type"
+    t.integer  "image_file_file_size"
+    t.datetime "image_file_updated_at"
+    t.integer  "listing_id"
+    t.integer  "floorplan_id"
+  end
+
   create_table "landlords", force: true do |t|
     t.string   "email"
     t.string   "password"
@@ -99,13 +110,17 @@ ActiveRecord::Schema.define(version: 20130925005852) do
     t.string   "contact_email"
     t.string   "phone_number"
     t.string   "website_url"
-    t.boolean  "featured",        default: false
+    t.boolean  "featured",                 default: false
     t.string   "slug"
     t.string   "geocode"
-    t.boolean  "active",          default: true
+    t.boolean  "active",                   default: true
     t.integer  "neighborhood_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   create_table "managements", force: true do |t|

@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% @listing.images.each do |image| %>
+  <p>
+    <%= image_tag image.image_file(:thumb) %>
+  </p>
+<% end %>
+
 <p>
   <strong>Building Name:</strong>
   <%= @listing.building_name %>

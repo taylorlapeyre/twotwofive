@@ -43,3 +43,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "paperclip", "~> 3.0"
+
+gem "remotipart", "~> 1.0"
