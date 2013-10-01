@@ -31,12 +31,10 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        management = Management.new
-        management.landlord_id = current_landlord.id
-        management.listing_id = @listing.id
-        management.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.js   {}
+        Management.create(landlord_id: current_landlord.id, listing_id: @listing.id)
+        @floorplan = Floorplan.new
+
+        format.html { render new_floorplan_path }
         format.json { render action: 'show', status: :created, location: @listing }
       else
         format.html { render action: 'new' }
