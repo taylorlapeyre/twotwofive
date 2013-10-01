@@ -1,7 +1,9 @@
 Twotwofive::Application.routes.draw do
+  get "images/create"
   resources :listings
   resources :floorplans
   resources :landlords
+  resources :images, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
   
   root             "static_pages#index"
