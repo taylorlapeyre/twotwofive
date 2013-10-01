@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
 		if landlord # && landlord.authenticate(params[:session][:password])
 			sign_in landlord
-      redirect_to root_path
+      redirect_to '/'
 		else
 			flash[:error] = 'Invalid email/password combination'
       render 'new'

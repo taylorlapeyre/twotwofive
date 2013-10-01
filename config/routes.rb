@@ -1,8 +1,8 @@
 Twotwofive::Application.routes.draw do
   get "images/create"
   resources :listings
-  resources :floorplans
-  resources :landlords
+  resources :floorplans, except: [:index, :show]
+  resources :landlords, except: [:index, :show]
   resources :images, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
   

@@ -1,5 +1,7 @@
 <h1>Sign In</h1>
 
+<p><%= @notice if @notice.present? %></p>
+
 <%= form_for(:session, url: sessions_path) do |f| %>
   <div class="field">
     <%= f.label :email %><br>

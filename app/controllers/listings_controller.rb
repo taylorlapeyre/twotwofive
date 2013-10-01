@@ -32,9 +32,8 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.save
         Management.create(landlord_id: current_landlord.id, listing_id: @listing.id)
-        @floorplan = Floorplan.new
 
-        format.html { render 'upload_images' }
+        format.html { render 'images/new' }
         format.json { render action: 'show', status: :created, location: @listing }
       else
         format.html { render action: 'new' }
@@ -83,13 +82,7 @@ class ListingsController < ApplicationController
     end
 
     def correct_landlord
-      correct = false
       @listing = Listing.find(params[:id])
-
-      @listing.landlords.each do |landlord|
-        correct = true if landlord.id == current_landlord.id
-      end
-      
-      redirect_to '/' unless correct
+      redirect_to '/' if @listing.landlords.where(id: current_landlord.id).empty?
     end 
 end

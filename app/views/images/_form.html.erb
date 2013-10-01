@@ -2,7 +2,7 @@
 	<% if @listing %>
 		<%= f.hidden_field :listing_id, value: @listing.id %>
 	<% elsif @floorplan %>
-		<%= f.hidden_field :landlord_id, value: @landlord.id %>
+		<%= f.hidden_field :floorplan_id, value: @floorplan.id %>
 	<% end %>
 
 	<%= f.file_field :image_file %>

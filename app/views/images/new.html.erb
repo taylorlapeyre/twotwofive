@@ -1,0 +1,18 @@
+<% if @listing %>
+	<h1>Step Two</h1>
+	<h3>Upload images of <%= @listing.building_name %></h3>
+
+	<%= render 'images/form', :listing => @listing %>
+
+	<div id="image-box"></div>
+
+	<%= link_to "Next", new_floorplan_path(:listing_id => @listing.id) %>
+<% elsif @floorplan %>
+	<h3>Upload images of <%= @floorplan.name %></h3>
+
+	<%= render 'images/form', :floorplan => @floorplan %>
+
+	<div id="image-box"></div>
+
+	<%= link_to "Next", new_floorplan_path(:listing_id => @floorplan.listing.id) %>
+<% end %>

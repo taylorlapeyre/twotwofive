@@ -1,6 +1,7 @@
 class FloorplansController < ApplicationController
   before_action :set_floorplan, only: [:update, :destroy]
   before_action :signed_in
+  before_action :correct_landlord, only: [:new]
 
   def new
     @floorplan = Floorplan.new
@@ -12,7 +13,7 @@ class FloorplansController < ApplicationController
 
     respond_to do |format|
       if @floorplan.save
-        format.js   {}
+        format.js
         format.json { render action: 'show', status: :created, location: @floorplan }
       else
         format.json { render json: @floorplan.errors, status: :unprocessable_entity }
@@ -58,4 +59,9 @@ class FloorplansController < ApplicationController
     def signed_in
       redirect_to '/' unless signed_in?
     end
+
+    def correct_landlord
+      @listing = Listing.find(params[:listing_id])
+      redirect_to '/' if @listing.landlords.where(id: current_landlord.id).empty?
+    end 
 end
