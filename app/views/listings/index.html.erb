@@ -15,8 +15,8 @@
       <th>Geocode</th>
       <th>Active</th>
       <th>Neighborhood</th>
-      <th></th>
-      <th></th>
+      <th>Highest Rent</th>
+      <th>Rents</th>
       <th></th>
     </tr>
   </thead>
@@ -36,6 +36,8 @@
         <td><%= listing.geocode %></td>
         <td><%= listing.active %></td>
         <td><%= listing.neighborhood_id %></td>
+        <td><%= listing.highest_rent %></td>
+        <td><%= listing.rents %></td>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

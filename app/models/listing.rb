@@ -27,6 +27,14 @@ class Listing < ActiveRecord::Base
     Floorplan.destroy_all(:listing_id => self.id)
   end
 
+  def highest_rent
+    self.floorplans.map { |f| f.rent }.max
+  end
+
+  def rents
+    self.floorplans.map { |f| f.rent }
+  end
+
   def make_slug
     slug = self.address
     #strip the string

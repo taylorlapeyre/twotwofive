@@ -13,13 +13,7 @@ class Landlord < ActiveRecord::Base
   end
 
   def has_incomplete_listings?
-    incomplete = false
-
-    self.listings.each do |listing|
-      if listing.floorplans.empty?
-        incomplete = true
-      end
-    end
+    self.listings.map { |listing| listing if listing.floorplans }.empty?
   end
 
   private
