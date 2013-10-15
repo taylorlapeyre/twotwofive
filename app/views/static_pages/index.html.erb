@@ -21,7 +21,7 @@
 								</div>
 								<div class="input-group pull-left" style="padding-right: 30px">
 									<div class="search-label pull-left">Display Type</div>
-									<%= select_tag :display_type, options_for_select(['Select&nbsp;&#8595;'.html_safe] + @display_options), class: "pull-left btn btn-group btn-lg btn-danger", style: "-webkit-appearance: none;"  %>
+									<%= select_tag :display_type, options_for_select(@display_options), class: "pull-left btn btn-group btn-lg btn-danger", style: "-webkit-appearance: none;"  %>
 								</div>
 								
 								<div class="input-group-end pull-left" style="margin-top: 1px;">
