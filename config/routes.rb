@@ -1,16 +1,17 @@
 Twotwofive::Application.routes.draw do
-  get "images/create"
   resources :listings
   resources :floorplans, except: [:index, :show]
   resources :landlords, except: [:index, :show]
   resources :images, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :search, only: [:create]
   
   root             "static_pages#index"
   get "contact" => "static_pages#contact"
   get "terms"   => "static_pages#terms"
   get "about"   => "static_pages#about"
   get "privacy" => "static_pages#privacy"
+  get "images/create"
 
   match '/signup',  to: 'landlords#new',        via: 'get'
   match '/signin',  to: 'sessions#new',     via: 'get'
