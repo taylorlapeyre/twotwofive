@@ -1,6 +1,37 @@
 <%= render 'layouts/header' %>
 
-<body class="container">
+<body>
+	<div class="navbar navbar-fixed-top clear-fix">
+		<div class="container"><!-- container -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="branding pull-left">
+					<img src="http://225apartments.com/sandbox/assets/images/logo-small.png" alt="225Apartments.com" class="pull-left">
+					<div class="pull-left">
+						<h1 id="branding" class="brand"><a href="index.html">VOODOO<span class="small muted">Rent</span></a></h1>
+					</div>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse pull-right">
+				<ul class="nav navbar-nav">
+					<li class="active"><%= link_to "Browse Listings", listings_path %></li>
+					<% if signed_in? %>
+						<li class="nav-end"><%= link_to "Add Listing", new_listing_path %></li>
+					<% else %>
+						<li><%= link_to "Sign In", signin_path %></li>
+					<% end %>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+	<% flash.each do |key, value| %>
+	  <div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
 	<% if signed_in? %>
 		<p class="alert <%= current_landlord.has_incomplete_listings? ? "alert-warning" : "alert-info" %>">
 			Signed in as <%= current_landlord.email %>
@@ -10,10 +41,6 @@
 			<% end %>
 		</p>
 	<% end %>
-	<% flash.each do |key, value| %>
-	  <div class="alert alert-<%= key %>"><%= value %></div>
-	<% end %>
 	<%= yield %>
-</body>
 
 <%= render 'layouts/footer' %>
