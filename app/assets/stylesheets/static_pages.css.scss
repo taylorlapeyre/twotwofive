@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+section.dropdown-menu:hover {
+  -webkit-appearance: none;
+}
+
+
+
+
+
+
 body .navbar {
   -webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.15);
   -moz-box-shadow: 0 1px 10px rgba(0,0,0,0.15);
