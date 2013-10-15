@@ -1,10 +1,12 @@
 Twotwofive::Application.routes.draw do
+  get "search/create"
   get "images/create"
   resources :listings
   resources :floorplans, except: [:index, :show]
   resources :landlords, except: [:index, :show]
   resources :images, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :search, only: [:create]
   
   root             "static_pages#index"
   get "contact" => "static_pages#contact"
