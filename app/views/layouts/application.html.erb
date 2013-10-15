@@ -2,7 +2,7 @@
 
 <body>
 	<div class="navbar navbar-fixed-top clear-fix">
-		<div class="container"><!-- container -->
+		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -13,7 +13,7 @@
 				<div class="branding pull-left">
 					<%= image_tag "logo.png", class: "pull-left" %>
 					<div class="pull-left">
-						<h1 id="branding" class="brand"><a href="index.html">VOODOO<span class="small muted">Rent</span></a></h1>
+						<h1 id="branding" class="brand"><a href="/">VOODOO<span class="small muted">Rent</span></a></h1>
 					</div>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 						<li><%= link_to "Sign In", signin_path %></li>
 					<% end %>
 				</ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		</div>
 	</div>
 	<% flash.each do |key, value| %>
