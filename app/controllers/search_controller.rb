@@ -10,8 +10,6 @@ class SearchController < ApplicationController
   		end
   	end
 
-
-
   	render 'listings/index'
   end
 end
