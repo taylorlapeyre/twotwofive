@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
+    @display_options = ["List", "Map"]
   end
 
   def contact
