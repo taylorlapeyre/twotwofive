@@ -11,9 +11,9 @@
         <div class="overview-sidebar text-right">
 					<h2>
 						<% if @listing.lowest_rent == @listing.highest_rent %>
-							<% @listing.highest_rent %>$955 <small>/month</small>
+							$<%= @listing.highest_rent %> <small>/month</small>
 						<% else %>
-							<%= @listing.lowest_rent %> - <%= @listing.highest_rent %> <small>/month</small>
+							$<%= @listing.lowest_rent %> - $<%= @listing.highest_rent %> <small>/month</small>
 						<% end %>
 					</h2>
         </div>
