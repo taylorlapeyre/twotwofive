@@ -1,10 +1,88 @@
 <p id="notice"><%= notice %></p>
+<link href="http://code.jquery.com/ui/1.10.2/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-<% @listing.images.each do |image| %>
-  <p>
-    <%= image_tag image.image_file(:thumb) %>
-  </p>
-<% end %>
+<div class="searchbar">
+  <div class="container">
+    <div class="row searchbar-container listing-container">
+      <div class="col-md-8" style="margin-top: 15px;">
+        <h1><%= @listing.building_name %></h1>
+      </div>
+      <div class="col-md-4">
+        <div class="overview-sidebar text-right">
+        <h2>$665 - $955 <small>/month</small></h2>       
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="container listing">
+  <div class="row main">
+    <div class="col-md-8"> 
+      <br />
+      <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="photos">
+          <!-- Main Area -->
+          <div id="main_area">
+            <% @listing.images.each do |image| %>
+                <%= image_tag image.image_file(:thumb) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="page-header">
+            <h3>Apartment Overview</h3>
+          </div>
+          <div class="description">
+            <p><%= @listing.descrption %></p>
+          </div>
+        </div>
+        <!-- MODAL GOES HERE -->
+        <% @listing.floorplans.each do |floorplan| %>
+          <%= render partial: 'floorplans/floorplan', object: floorplan %>
+        <% end %>  
+      </div>
+    </div>
+    <div class="col-md-4">
+      <br />
+      <div class="well well-lg contact">
+        <h1 class="text-center"><strong>Find Out More</strong></h1>
+        <form role="form">
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <select class="form-control">
+              <option>Move-in Date</option>
+              <option>Very soon (15 days)</option>
+              <option>Next month</option>
+              <option>Next 2-3 months</option>
+              <option>Next 4-6 months</option>
+              <option>Next 7 months or more</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" placeholder="Any Additional Information"></textarea>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Receive tips for finding the perfect apartment along with special offers.
+            </label>
+          </div>
+          <center><button type="submit" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;<strong>Check Availability</strong></button></center>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
 
 <p>
   <strong>Building Name:</strong>
@@ -65,12 +143,10 @@
   <strong>Neighborhood:</strong>
   <%= @listing.neighborhood_id %>
 </p>
-
+-->
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
 
-<h3>Floorplans:</h3>
-<% @listing.floorplans.each do |floorplan| %>
-  <%= render partial: 'floorplans/floorplan', object: floorplan %>
-<% end %>
-
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
