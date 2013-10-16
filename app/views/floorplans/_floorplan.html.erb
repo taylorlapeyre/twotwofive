@@ -1,3 +1,18 @@
+<table class="table table-hover floorplans" style="font-size: 16px;">
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= floorplan.num_bedrooms %> Bedroom</td>
+      <td><%= floorplan.num_bathrooms %> Bathroom</td>
+      <td><%= floorplan.square_footage %> sq. ft.</td>
+      <td><span class="strong green">$<%= floorplan.rent %></span>&nbsp;/<%= floorplan.rent_type %></td>
+      <td><button class="demo btn btn-default btn-large" data-toggle="modal" href="#myModal" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;View Floorplan</button></td>
+    </tr>
+  </tbody>
+</table>    
+
+<!--
 <div class="floorplan">
 	<strong><%= floorplan.name %></strong>
 	<ul>
@@ -11,3 +26,4 @@
 		<li>Lease Type: <%= floorplan.lease_type %></li>
 	</ul>
 </div>
+-->
