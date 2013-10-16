@@ -9,7 +9,13 @@
       </div>
       <div class="col-md-4">
         <div class="overview-sidebar text-right">
-        <h2>$665 - $955 <small>/month</small></h2>       
+					<h2>
+						<% if @listing.lowest_rent == @listing.highest_rent %>
+							<% @listing.highest_rent %>$955 <small>/month</small>
+						<% else %>
+							<%= @listing.lowest_rent %> - <%= @listing.highest_rent %> <small>/month</small>
+						<% end %>
+					</h2>
         </div>
       </div>
     </div>
