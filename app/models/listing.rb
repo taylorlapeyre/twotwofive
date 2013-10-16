@@ -31,6 +31,10 @@ class Listing < ActiveRecord::Base
     self.floorplans.map { |f| f.rent }.max
   end
 
+  def lowest_rent
+    self.floorplans.map { |f| f.rent }.min
+  end
+
   def rents
     self.floorplans.map { |f| f.rent }
   end
