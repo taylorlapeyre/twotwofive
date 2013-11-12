@@ -49,3 +49,5 @@ end
 gem "paperclip", "~> 3.0"
 
 gem "remotipart", "~> 1.0"
+
+gem 'rails_12factor', group: :production
