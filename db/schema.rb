@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131001022252) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "amenity_lists", force: true do |t|
     t.integer  "listing_id"
     t.boolean  "basketball_court"
@@ -100,7 +103,7 @@ ActiveRecord::Schema.define(version: 20131001022252) do
     t.string   "remember_token"
   end
 
-  add_index "landlords", ["remember_token"], name: "index_landlords_on_remember_token"
+  add_index "landlords", ["remember_token"], name: "index_landlords_on_remember_token", using: :btree
 
   create_table "listings", force: true do |t|
     t.string   "building_name"
