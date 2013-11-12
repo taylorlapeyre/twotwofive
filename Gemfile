@@ -6,7 +6,10 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-gem 'pg', '0.17.0'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,5 +52,3 @@ end
 gem "paperclip", "~> 3.0"
 
 gem "remotipart", "~> 1.0"
-
-gem 'rails_12factor', group: :production

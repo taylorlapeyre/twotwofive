@@ -127,7 +127,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   paperclip (~> 3.0)
-  pg (= 0.17.0)
+  pg
   rails (= 4.0.0)
   rails_12factor
   remotipart (~> 1.0)
