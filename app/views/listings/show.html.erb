@@ -31,7 +31,7 @@
           <!-- Main Area -->
           <div id="main_area">
             <% @listing.images.each do |image| %>
-                <%= image_tag image.image_file(:thumb) %>
+                <%= image_tag image.image_file(:small) %>
             <% end %>
           </div>
         </div>
@@ -45,6 +45,7 @@
         </div>
         <!-- MODAL GOES HERE -->
         <% @listing.floorplans.each do |floorplan| %>
+          <%= render partial: 'floorplans/modal', object: floorplan %>
           <%= render partial: 'floorplans/floorplan', object: floorplan %>
         <% end %>  
       </div>
