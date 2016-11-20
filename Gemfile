@@ -47,3 +47,5 @@ end
 gem "paperclip", "~> 3.0"
 
 gem "remotipart", "~> 1.0"
+
+gem 'actionpack', '~> 4.0.0'

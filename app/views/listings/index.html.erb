@@ -60,7 +60,7 @@
         <%= link_to(listing) do %>
           <div class="panel panel-default">
             <div class="listing-panel-body">
-              <img src="http://media.apts247.info/2a/2a9b95fef14b4be99193a3e463322411/galleries/community/amenitiesIMG_8927.jpg" class="img-responsive" />
+              <%= image_tag listing.images.first.image_file(:small), class: 'img-responsive' %>
             </div>
             <div class="panel-footer">
               <div class="row footer-top">

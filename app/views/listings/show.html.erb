@@ -45,8 +45,8 @@
         </div>
         <!-- MODAL GOES HERE -->
         <% @listing.floorplans.each do |floorplan| %>
-          <%= render partial: 'floorplans/modal', object: floorplan %>
-          <%= render partial: 'floorplans/floorplan', object: floorplan %>
+          <%= render 'floorplans/modal', floorplan: floorplan %>
+          <%= render 'floorplans/floorplan', floorplan: floorplan %>
         <% end %>  
       </div>
     </div>
@@ -88,5 +88,7 @@
     </div>
   </div>
 </div>
+
+<a href="<%= root_url(:only_path => false) %>floorplans/new?listing_id=<%= @listing.id %>">New Floorplan</a>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>

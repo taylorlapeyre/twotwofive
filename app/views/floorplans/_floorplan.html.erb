@@ -1,13 +1,19 @@
 <table class="table table-hover floorplans" style="font-size: 16px;">
   <tbody>
     <tr>
-      <td></td>
+      <td>
+      <% if signed_in? && floorplan.listing.landlords.include?(current_landlord) %>
+        </td><td>
+        <%= link_to(edit_floorplan_path, method: :edit) do %><a href="<%= root_url(:only_path => false) %>floorplans/<%= floorplan.id %>/edit">Edit</a><% end %>
+        <%= link_to 'Destroy', floorplan, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      </td>
       <td></td>
       <td><%= floorplan.num_bedrooms %> Bedroom</td>
       <td><%= floorplan.num_bathrooms %> Bathroom</td>
       <td><%= floorplan.square_footage %> sq. ft.</td>
       <td><span class="strong green">$<%= floorplan.rent %></span>&nbsp;/<%= floorplan.rent_type %></td>
-      <td><button class="demo btn btn-default btn-large" data-toggle="modal" href="#myModal" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;View Floorplan</button></td>
+      <td><button class="demo btn btn-default btn-large" data-toggle="modal" href="#floorplan-<%= floorplan.id %>" style="margin-bottom: 10px;"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;View Floorplan</button></td>
     </tr>
   </tbody>
 </table>

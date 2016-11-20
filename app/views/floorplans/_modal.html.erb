@@ -1,0 +1,93 @@
+<!-- Modal -->
+<div class="modal fade" id="floorplan-<%= floorplan.id %>" tabindex="-1" role="dialog" data-width="760"aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title" style="padding-right: 28px;"><%= floorplan.num_bedrooms %> <small style="color: #fff; font-size: 20px;">Bedrooms</small>&nbsp;&nbsp;&nbsp;<%= floorplan.num_bedrooms %> <small style="color: #fff; font-size: 20px;">Bathrooms</small></h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="panel-title" style="margin-bottom: 15px;">Floorplan Features</h3>
+              <% floorplan.feature_list.attributes.each do |feature_name, has_it| %>
+              <ul class="list-unstyled pull-left" style="line-height: 1.8em; padding-left: 0; margin-left: 0; width: 45%;">
+                <% if has_it %>
+                  <li class=""><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<%= feature_name.humanize %></li>
+                <% else %>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<%= feature_name.humanize %></li>
+                <% end %>
+                </ul>
+<!--               <ul class="list-unstyled pull-left" style="line-height: 1.8em; padding-left: 0; margin-left: 0; width: 45%;">
+                  
+                  <li><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Alarm System</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Cats Allowed</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Central Air</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Covered Parking</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Deck or Patio</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Dishwasher</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Dogs Allowed</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Elevator</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Fireplace</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Hardwood Floors</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;New Appliances</li>
+                </ul>
+                <ul class="list-unstyled pull-right" style="line-height: 1.8em; padding-left: 0; margin-left: 0; width: 45%;">
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;On Street Parking</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Parking Garage</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Private Garage</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Private Yard</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Reserved Parking</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Shared Yard</li>
+                  <li class="not-available"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Vaulted Ceilings</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Walk in Closet</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Washer/Dryer</li>
+                  <li><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Wifi Included</li>
+                </ul> -->
+              <% end %>
+          </div>
+          <!-- Main Area -->
+          <div id="main_area" class="col-md-12">
+            <h3 class="pull-right" style="margin: 0 0 15px 0;"><span class="strong green">$<%= floorplan.rent %></span> <small>/per bed</small></h3>
+            <!-- Slider -->
+            <div class="row">
+              <div class="col-md-5 col-md-offset-1" id="slider" style="">
+              <!-- Top part of the slider -->
+                <div class="row">
+                  <div id="carousel-bounding-box" class="carousel-bounding-box-floorplan">
+                    <div id="floorplan_carousel" class="carousel slide" style="width: 300px; height: 240px; background-color: #eee;">
+                    <!-- Carousel items -->
+                      <div class="carousel-inner floorplan-carousel" >
+                        <div class="active item item-carousel" data-slide-number="0">
+                          <img src="http://225apartments.com/sandbox2/assets/images/campus-crossings/1Bed.png" />
+                        </div>
+                        <div class="item item-carousel" data-slide-number="1">
+                          <img src="http://225apartments.com/sandbox2/assets/images/campus-crossings/Campus-Crossings-Highland_01.jpg" alt="Campus Crossings">
+                        </div>
+                        <div class="item item-carousel" data-slide-number="2">
+                          <img src="http://225apartments.com/sandbox2/assets/images/campus-crossings/Campus-Crossings-Highland_02.jpg" alt="Campus Crossings">
+                        </div>
+                        <div class="item item-carousel" data-slide-number="3">
+                          <img src="http://225apartments.com/sandbox2/assets/images/campus-crossings/Campus-Crossings-Highland_06.jpg" alt="Campus Crossings">
+                        </div>
+                      </div>
+                        <!-- Carousel nav -->
+                        <a class="carousel-control foorplan left" href="#floorplan_carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                        <a class="carousel-control floorplan right" href="#floorplan_carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!--/Slider-->
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h4><span class="col-md-6 text-left"><span class="glyphicon glyphicon-calendar"></span>&nbsp;12 month lease&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-inbox"></span>&nbsp;<%= floorplan.deposit %> Deposit</span></h4>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-envelope" style="opacity: 0.8;"></span>&nbsp;&nbsp;&nbsp;Check Availability</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->  

@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
     @image = Image.new
 
     if params[:listing_id]
-      @listing = Listing.find(params[:listing_id])
+      @listing   = Listing.find(params[:listing_id])
     elsif params[:floorplan_id]
       @floorplan = Floorplan.find(params[:floorplan_id])
     end
